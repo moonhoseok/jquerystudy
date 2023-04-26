@@ -1,0 +1,34 @@
+<!-- /jquerystudy/src/main/webapp/20230425/event2.html -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이벤트 함수 </title>
+<style type="text/css">
+	.reverse{
+		background : black;
+		color : white;
+	}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		// click : h1 태그가 클릭될때 호출 되는 함수
+		$("h1").click(function(){
+			$(this).html(function(i,item){
+				return item+"+"
+			})
+		})
+		//hover : 마우스 커서가 태그 내부에 들어온 경우
+		$("h1").hover(function(){
+			$(this).addClass("reverse") // class="reverse" 속성 추가
+		},function(){ //hover와 반대인경우, 마우스커서가 외부로 나갈때
+			$(this).removeClass("reverse")// class="reverse" 속성 제거
+		})
+	})
+</script>
+</head>
+<body>
+<h1>Header-0</h1><h1>Header-1</h1><h1>Header-2</h1>
+</body>
+</html>

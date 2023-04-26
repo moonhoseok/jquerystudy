@@ -1,0 +1,31 @@
+<!-- /jquerystudy/src/main/webapp/20230425/event4.html -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이벤트 강제발생</title>
+<style type="text/css">
+	.reverse{
+		background : black;
+		color : white;
+	}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("h1").click(function(){
+			$(this).html(function(i,item){
+				return item+"★"
+			})
+		})
+		setInterval(function(){
+//			$("h1").first().trigger("click") // h1태그 중 첫번째 태그를 클릭이벤트 발생시킴
+			$("h1").first().click() // click함수 호출
+		},1000)
+	})
+</script>
+</head>
+<body>
+<h1>Header-0</h1><h1>Header-1</h1><h1>Header-2</h1>
+</body>
+</html>

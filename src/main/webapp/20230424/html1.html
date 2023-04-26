@@ -1,0 +1,38 @@
+<!-- /jquerystudy/src/main/webapp/20230424/html1.html -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>html함수 : innerHTML 같은 기능</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script type="text/javascript">
+/*
+ *  첫번째 div 태그 : <h1>Header-0</h1>
+ 	두번째 div 태그 : <h1>Header-1</h1>
+ 	세번째 div 태그 : <h1>Header-2</h1>
+ */
+	$(function(){
+		//$("div").html("<h1>Header</h1>")
+		$("div").html(function(i){
+			return "<h1>Hearder-"+i+"</h1>"
+		})
+	//div 태그 내용을 alert으로 출력하기
+	
+		/* $("div").each(function(i,item){
+			alert($(this).html())
+		}) */
+	//$("div") :div 태그들. 배열	
+		$.each($("div"),function(i,item){
+			alert($("div:eq("+i+")").html())
+		})
+// text(): 함수:html이 아닌 순수 문자열로 인식함
+		$("div").text(function(i){
+			return "<h1>Header-"+i+ "</h2>"
+		})
+	})
+</script>
+</head>
+<body>
+<div></div><div></div><div></div>
+</body>
+</html>

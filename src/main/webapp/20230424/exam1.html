@@ -1,0 +1,54 @@
+<!-- /jquerystudy/src/main/webapp/20230424/exam1.html -->
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		let arr=["red","yellow","purple"]
+
+		/* $("h1").each(function(i,h1){
+			$(this).css("color",arr[i])
+		}) */
+		/* $("h1").each(function(i,h1){
+			$(this).css({"color":arr[i],"background":"black"})
+		}) */
+		$("h1").each(function(i,h1){
+			$(this).css("color",arr[i]).css("background","blue")
+		})
+		
+		/* $.each(arr,function(i,item){
+			$("h1:eq("+i+")").css("color",item)
+		}) */ 
+		/* 
+		$.each(arr,function(i,item){
+			$("h1:eq("+i+")").css({"color":item,"background":"green"})
+		}) */
+		
+		//$("h1").css("background","black")
+		
+		//css 를 이용하여 처리하기.
+		
+		/* $("h1").css("color",function(index){
+			return arr[index]
+		}).css("background","black") */
+		
+		/* $("h1").css({"color":function(index){return arr[index]},
+					"background":"blue"}) */ 
+		$("h1").each(function(i,h1){
+			//alert($(this).css("color"))
+			alert($(this).css("background-color"))
+		})			
+	})
+</script>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+글자색을 red, yellow, purple으로 설정하기 : each 함수 사용
+배경색을 전부 파란색으로 설정하기
+<h1>Header_0 :red</h1>
+<h1>Header_1 :yellow</h1>
+<h1>Header_2 :purple</h1>
+</body>
+</html>

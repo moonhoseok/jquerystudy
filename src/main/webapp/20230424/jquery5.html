@@ -1,0 +1,40 @@
+<!-- /jquerystudy/src/main/webapp/20230424/jquery5.html -->
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		//초록,노랑,파랑 순으로 배경색 설정
+		$("tr:nth-child(3n+1)").css({"background":"green"})
+		$("tr:nth-child(3n+2)").css({"background":"yellow"})
+		$("tr:nth-child(3n)").css({"background":"blue"})
+		//0번 인덱스의 tr태그를 검정바탕에 흰글씨로 설정
+//		$("tr:first").css({"background":"black","color":"white"})
+//		$("tr:first").css("background","black").css("color","white")
+		//eq(인덱스) : 0번 인덱스 설정
+		$("tr:eq(0)").css({"background":"black","color":"white"})
+		//eq(3) : 흰바탕에 파랑글씨
+		$("tr:eq(3)").css({"background":"white","color":"blue"})
+	})
+</script>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<table border="1">
+<tr><th>이름</th><th>혈액형</th><th>지역</th></tr>
+<tr><td>홍길동</td><td>O 형</td><td>서울</td></tr>
+<tr><td>이몽룡</td><td>A 형</td><td>남원</td></tr>
+<tr><td>김삿갓</td><td>AB 형</td><td>하남</td></tr>
+<tr><td>임꺽정</td><td>B 형</td><td>강릉</td></tr>
+<tr><td>홍길동</td><td>O 형</td><td>서울</td></tr>
+<tr><td>이몽룡</td><td>A 형</td><td>남원</td></tr>
+<tr><td>김삿갓</td><td>AB 형</td><td>하남</td></tr>
+<tr><td>임꺽정</td><td>B 형</td><td>강릉</td></tr>
+<tr><td>이몽룡</td><td>A 형</td><td>남원</td></tr>
+<tr><td>김삿갓</td><td>AB 형</td><td>하남</td></tr>
+<tr><td>임꺽정</td><td>B 형</td><td>강릉</td></tr>
+</table>
+</body>
+</html>

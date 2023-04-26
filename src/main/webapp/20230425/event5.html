@@ -1,0 +1,36 @@
+<!-- /jquerystudy/src/main/webapp/20230425/event5.html -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>기본이벤트 무시하기</title>
+<style type="text/css">
+	*{
+		margin :5px;
+		padding:5px;
+		border :3px solid black;
+	}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("h1").click(function(){
+			$(this).css("background-color","red")
+		})
+		$("a").click(function(){
+			$(this).css("background-color","blue")
+			//event.stopPropagation(); // 이벤트 전파 방지.
+			//event.preventDefault(); // 태그에 설정된 기본이벤트 취소
+			return false // 이벤트 전파방지. 기본이벤트 취소기능 
+		})
+	})
+</script>
+</head>
+<body>
+<h1>
+	<a href="http://www.gdu.co.kr"> 구디아카데미</a>
+</h1>
+<h1>Header-1</h1>
+
+</body>
+</html>
