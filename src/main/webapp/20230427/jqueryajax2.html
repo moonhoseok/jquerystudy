@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!-- /jquerystudy/src/main/webapp/20230427/jqueryajax2.html 
+	1. 로그인버튼 클릭시 id, pass 값을 읽어서 login.jsp 페이지로 전송하기
+	2. login.jsp 페이지 
+		- member 테이블을 읽어서 id,pass 검증하기
+		- id, pass 일치 : 반갑습니다. name 님 => message 부분 출력하기
+		- id, pass 불일치 : 아이디 또는 비밀번호가 틀리다 => message 부분 출력하기
+		==============================================================
+	아이디 중복버튼 클릭시 
+	1. id 파라미터를 iddup.jsp로 전송
+	2. iddup.jsp
+		- id 존재 : 존재하는 아이디입니다. => message 부분 출력하기
+					id 입력 내용 제거
+		- id가 없는 경우 : 사용가능한 아이디 입니다. => message 부분 출력하기
+-->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ajax를 이용한 로그인</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		// loginbtn의 버튼 타입이 submit이므로 마지막에 return false가 필요함
+		$("#loginbtn").click(function(){
+			let param = {id:$("#id").val(), pass:$("#pass").val()}
+			$.ajax({
+				url : "login.jsp",
+				type : "POST",
+				data : param,
+				success : function(data){
+					// data : 서버에서 전송된 데이터 저장
+					$("#message").html(data)
+					
+				},
+				error : function(e){
+					alert("서버오류 : " + e.status)
+				}
+			})
+			return false; // 기본이벤트 취소 => submit버튼 기능 제거 역할
+							// submit 기능 : form의 action 속성의 페이지로 페이지 호출
+							// 			action 속성이 없는 경우 현재페이지 다시 호출
+		})
+		$("#btn").click(function(){
+			let param = {id:$("#id").val()}
+			$.ajax({
+				url : "iddup.jsp",
+				type : "POST",
+				data : param,
+//data : <h1 id="result" class="find">사용 불가능한 아이디입니다.</h1>
+				success : function(data){
+					// data : 서버에서 전송된 데이터 저장
+					$("#message").html(data)
+// id="result"를 가진 태그의 class="find" 여부 판단
+					if($("#result").is(".find")){ 
+						$("#id").val("");
+					}
+				},
+				error : function(e){
+					alert("서버오류 : " + e.status)
+				}
+			})
+		})
+	})
+</script>
+</head>
+<body>
+<form name="f">
+	아이디 : <input type="text" id="id">
+		<input type="button" value="아이디중복" id="btn"><br>
+	비밀번호 : <input type="password" id="pass"><br>
+		<input type="submit" value="로그인" id="loginbtn"><br>
+</form>
+<div id="message"></div>
+</body>
+</html>

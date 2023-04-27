@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!-- 
+	/jquerystudy/src/main/webapp/20230427/exam1.html
+	examtest.jsp에서 0~99사이의 임의이 값을 10개 생성하여 ,로 연결하여 
+	exam1.html 에서 fetch함수 를 통해 현재 페이지에 전송하기
+	exam1.html 에서 콜백함수에서 숫자중 가장 큰값, 작은값을 찾아서 출력하기
+ -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	//window.onload = 
+	function load(url){
+		fetch(url)
+		.then((r)=>r.text())
+		.then((data)=>{
+			const nums = data.split(",")
+			let max = parseInt(nums[0])
+			let min = parseInt(nums[0])
+			for(let i =1; i<nums.length; i++){
+				nums[i] = parseInt(nums[i])
+				if(max < nums[i]) max=nums[i]
+				if(min > nums[i]) min=nums[i]
+			}
+			document.querySelector("#result").innerHTML =
+				"<strong>["+ data +"] 중 최대값 : "+max+"</strong><br>"
+				+"<strong>["+ data +"] 중 최소값 : "+min+"</strong>"
+		})
+	}
+</script>
+</head>
+<body>
+<input type="button" value="json읽기" 
+			onclick="load('../20230426/examtest.jsp')">
+<div id="result"></div>
+</body>
+</html>
