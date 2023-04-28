@@ -22,3 +22,4 @@
 <c:if test="${empty rs.rows }">
 	<h1><font color="red">아이디 또는 비빌번호 틀림</font></h1>
 </c:if>
+ 
